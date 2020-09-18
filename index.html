@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            DRUM STUCK
+        </title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="body-container">
+            
+            <div class="container">
+                <div class="classa key">
+                    A<div class="type">boom</div>
+                </div>
+                <div class="classs key">
+                    S<div class="type">clap</div>
+                </div>
+                <div class="classd key">
+                    D<div class="type">hithat</div>
+                </div>
+                <div class="classf key">
+                    F<div class="type">kick</div>
+                </div>
+                <div class="classg key">
+                   G <div class="type">openhat</div>
+                </div>
+                <div class="classh key">
+                    H<div class="type">ride</div>
+                </div>
+                <div class="classj key">
+                    J<div class="type">snare</div>
+                </div>
+                <div class="classk key">
+                    K<div class="type">tink</div>
+                </div>
+                <div class="classl key">
+                    L<div class="type">tom</div>
+                </div>
+            </div>
+        </div>
+
+        <audio class="classa" src="sounds/boom.wav"></audio>
+        <audio class="classs" src="sounds/clap.wav"></audio>
+        <audio class="classd" src="sounds/hihat.wav"></audio>
+        <audio class="classf" src="sounds/kick.wav"></audio>
+        <audio class="classg" src="sounds/openhat.wav"></audio>
+        <audio class="classh" src="sounds/ride.wav"></audio>
+        <audio class="classj" src="sounds/snare.wav"></audio>
+        <audio class="classk" src="sounds/tink.wav"></audio>
+        <audio class="classl" src="sounds/tom.wav"></audio>
+
+    </body>
+
+
+    <script>
+        window.addEventListener("keydown",function(e){
+            let selection = document.querySelector(`.class${e.key.toLowerCase()}`)
+            if(selection){
+            selection.classList.add('keypressed')
+            let audio_select = document.querySelector(`audio.class${e.key.toLowerCase()}`)
+            audio_select.currentTime = 0;
+            audio_select.play()
+            }
+            
+        })
+        window.addEventListener("keyup",function(e){
+            let selection = document.querySelector(`.class${e.key.toLowerCase()}`)
+            if(selection){
+            selection.classList.remove('keypressed')
+            }
+        })
+    </script>
+</html>
